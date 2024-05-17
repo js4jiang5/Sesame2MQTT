@@ -1,12 +1,12 @@
 esphome:
-  name: Sesame2MQTT
+  name: sesame2mqtt
   friendly_name: Sesame2MQTT
   name_add_mac_suffix: true
   libraries:
   - https://github.com/js4jiang5/libsesame2mqtt
     
   project: 
-    name: Sesame2MQTT
+    name: esphome.sesame2mqtt
     version: "1.0"
 
   platformio_options:
