@@ -1,0 +1,53 @@
+esphome:
+  name: Sesame2MQTT
+  friendly_name: Sesame2MQTT
+  name_add_mac_suffix: true
+  libraries:
+  - https://github.com/js4jiang5/libsesame2mqtt
+    
+  project: 
+    name: Sesame2MQTT
+    version: "1.0"
+
+  platformio_options:
+    board_build.mcu: esp32c3
+    board_build.variant: esp32c3
+    board_build.flash_mode: dio
+    build_flags:
+    - -std=gnu++17 -Wall -Wextra -Wno-format
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+    version: 5.2.1
+    platform_version: espressif32@6.6.0
+
+    sdkconfig_options:
+      CONFIG_BT_NIMBLE_ENABLE_CONN_REATTEMPT: n
+      CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE: y
+      CONFIG_ESPTOOLPY_FLASHSIZE_4MB: y
+      CONFIG_BT_ENABLED: y
+      CONFIG_BTDM_CTRL_MODE_BLE_ONLY: y
+      CONFIG_BTDM_CTRL_MODE_BR_EDR_ONLY: n
+      CONFIG_BTDM_CTRL_MODE_BTDM: n
+      CONFIG_BT_BLUEDROID_ENABLED: n
+      CONFIG_BT_NIMBLE_ENABLED: y
+      CONFIG_BT_CONTROLLER_ENABLED: y
+      CONFIG_EXAMPLE_CONNECT_WIFI: y
+      CONFIG_EXAMPLE_CONNECT_IPV6: y
+      CONFIG_EXAMPLE_PEER_ADDR: "ADDR_ANY"
+      CONFIG_ESP_TASK_WDT_INIT: n
+
+external_components:
+  - source: 
+      type: git
+      url: https://github.com/js4jiang5/Sesame2MQTT
+    components: [sesame2mqtt]
+
+sesame2mqtt:
+  wifi_ssid: "wifi_ssid"
+  wifi_password: "wifi_password"
+  mqtt_broker_url: "username:password@address:1883" # MQTT Broker URL, for example "mqtt_user:mqtt_pass@192.168.1.69:1883"
+  number_devices: 2 # Optional, but it will significantly improve device scan speed if you set it to the real number of your Sesame devices. Maximum is 8
+
