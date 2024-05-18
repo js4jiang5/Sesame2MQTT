@@ -71,8 +71,7 @@ Sesame 5 device looks like this. <br>
     
     (2) Enter Lock and Unlock Position. The Lock status will be updated automatically after the Lock/Unlock Position is setup. My Sesame 5 is 160° for lock and 20° for unlock as the pictures below. Entering the value directly to setup lock/unlock position is a very convenient approach because you can do it even if you are outside of the door. It might save you one day if Sesame 5 went wrong and you were locked outside. <br>
     <img src="docs/Images/Sesame 5 - Lock Unlock Position.png" width="300" /> <br>
-    <img src="docs/Images/Sesame 5 - Lock 160.png" width="200" />
-    <img src="docs/Images/Sesame 5 - UnLock 20.png" width="200" /><br> <br>
+    <img src="docs/Images/Sesame 5 - Lock 160 Unlock 20.png" width="400" /> <br><br>
 
 3. Sesame Touch/ Touch Pro setup<br>
     (1) Pair with Sesame 5/ 5 Pro. If you have only two devices (one Sesame 5 + one Touch), they are automatically paired after ESP32 device scan. If you have more than two devices, manual pairing is necessary since I have no idea which one goes with which.<br>

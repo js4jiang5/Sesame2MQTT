@@ -71,8 +71,7 @@ Sesame 5 裝置的內容如下。 <br>
     
     (2) 輸入上鎖與解鎖角度，設定好後鎖的狀態便會自動更新。如下圖所示我的上鎖是 160° 而解鎖是 20°。能夠直接輸入值來設定上鎖/解鎖角度非常方便，這樣即使你人在門外也能夠設定。或許有一天 Sesame 5 突然出問題而你被反鎖在門外時，這個功能可以救你一命，<br>
     <img src="docs/Images/Sesame 5 - Lock Unlock Position.png" width="300" /> <br>
-    <img src="docs/Images/Sesame 5 - Lock 160.png" width="200" />
-    <img src="docs/Images/Sesame 5 - UnLock 20.png" width="200" /><br> <br>
+    <img src="docs/Images/Sesame 5 - Lock 160 Unlock 20.png" width="400" /> <br><br>
 
 3. 設定 Sesame Touch/ Touch Pro<br>
     (1) 與 Sesame 5/ 5 Pro 進行配對。假如你總共只有兩個設備，一台 Sesame 5 加上一台 Touch, ESP32 在掃描完後就會自動配對，不需要費心。但是如果你的設備超過兩台，便需自己手動進行配對，因為我無法得知配對哪一個才是正確的。<br>
