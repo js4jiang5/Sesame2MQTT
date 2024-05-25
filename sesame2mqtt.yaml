@@ -3,7 +3,7 @@ esphome:
   friendly_name: Sesame2MQTT
   name_add_mac_suffix: true
   libraries:
-  - https://github.com/js4jiang5/libsesame2mqtt#0.1.1
+  - https://github.com/js4jiang5/libsesame2mqtt#0.1.2
     
   project: 
     name: esphome.sesame2mqtt
@@ -37,18 +37,17 @@ esp32:
       CONFIG_EXAMPLE_CONNECT_WIFI: y
       CONFIG_EXAMPLE_CONNECT_IPV6: y
       CONFIG_EXAMPLE_PEER_ADDR: "ADDR_ANY"
-      CONFIG_ESP_TASK_WDT_INIT: n
+      CONFIG_ESP_TASK_WDT_INIT: y
+      CONFIG_ESP_TASK_WDT_TIMEOUT_S: "30"
 
 external_components:
   - source: 
       type: git
       url: https://github.com/js4jiang5/Sesame2MQTT
-      ref: 0.1.1
+      ref: 0.2.0
     components: [sesame2mqtt]
 
 sesame2mqtt:
   wifi_ssid: "wifi_ssid"
   wifi_password: "wifi_password"
   mqtt_broker_url: "username:password@address:1883" # MQTT Broker URL, for example "mqtt_user:mqtt_pass@192.168.1.69:1883"
-  number_devices: 2 # Optional, but it will significantly improve device scan speed if you set it to the real number of your Sesame devices. Maximum is 8
-

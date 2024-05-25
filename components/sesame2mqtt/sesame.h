@@ -21,6 +21,7 @@ class Sesame : public Component {
     private:
     public:
         Sesame(){}; // constructor
+        void loop(void);
         void init(string mqtt_broker_url, string wifi_ssid, string wifi_password);
         void init(string mqtt_broker_url, string wifi_ssid, string wifi_password, int number_devices);
         void pass_to_libsesame2mqtt(string mqtt_broker_url, string wifi_ssid, string wifi_password, int number_devices);

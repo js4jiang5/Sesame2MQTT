@@ -1,6 +1,15 @@
 # Sesame2MQTT
 The objective of [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) project is to let Home Assistant users to easily integrate Sesame devices into Home Assistant with an ESP32 board. The main feature of [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) is that it is based on MQTT discovery protocol, which automatically scan, detect and configure all devices. Therefore, the users hardly need to do any complex setup. Currently supported devices include Sesame 5/ 5 Pro/ Sesame Touch /Touch Pro. Intrinsically [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) is an ESPHome external component based on ESP-IDF framework, and the main functions are built on [libsesame2mqtt](https://github.com/js4jiang5/libsesame2mqtt), which is a fork of [SesameSDK_ESP32_with_DemoApp](https://github.com/CANDY-HOUSE/SesameSDK_ESP32_with_DemoApp) while provides more complete control and monitor functions along with WiFi and MQTT protocols. 
 
+## 版本
+- [0.2.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.2.0) (recommended，need to use [latest sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.2.0/sesame2mqtt.yaml)) <br>
+    - Endless detection of new Sesame devices without unplug & plug ESP32 USB
+    - Detection and handle the situation when any devices are reset. Unpug & plug ESP32 USB is not required
+
+- [0.1.1](https://github.com/js4jiang5/Sesame2MQTT/tree/0.1.1) ([old sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.1.1/sesame2mqtt.yaml))<br>
+    - First version. Detection of all Sesame devices at a time. Need to unplug/plug for new Sesame devices
+    - When any device is reset, the ESP32 USB need to by unplug & plug to rescan all devices
+
 ## Other languages
 - [正體中文 README](README_TW.md)<br>
 - [日文 README](README_JP.md)<br>
@@ -28,7 +37,7 @@ sesame2mqtt:
   number_devices: 2 # Optional, but it will significantly improve device scan speed if you set it to the real number of your Sesame devices. Maximum is 8
 ```
 
-3. Open ESPHome WEB UI and click the 3 dots of "Sesame2MQTT" project. Sub-menu pop-up. Click Install. Then choose Manual download. <br>
+3. Open ESPHome WEB UI and click the 3 dots of "Sesame2MQTT" project. Sub-menu pop-up. Clich Clean Build Files to make sure old version is cleared. After that, click Install. Then choose Manual download. <br>
 <img src="docs/Images/ESPHome - Sesame2MQTT Install.png" height="400" />
 <img src="docs/Images/ESPHome - Manual Download.png" height="400" /><br> <br>
 

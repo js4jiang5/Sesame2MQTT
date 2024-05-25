@@ -10,7 +10,7 @@ static void ssm_action_handle(sesame * ssm) {
 	ESP_LOGI(TAG, "[%s_action_handle][ssm status: %s]", SSM_PRODUCT_TYPE_STR(ssm->product_type), SSM_STATUS_STR(ssm->device_status));
 
 	// mqtt
-	if (mqtt_discovery_done) {
+	if (ssm->mqtt_discovery_done) {
 		ESP_LOGI(TAG, "[%s_action_handle][ssm status: %s]", SSM_PRODUCT_TYPE_STR(ssm->product_type), SSM_STATUS_STR(ssm->device_status));
 		char buffer[200];
 		int cnt = 0;
@@ -47,11 +47,11 @@ static void ssm_action_handle(sesame * ssm) {
 			msg_id = esp_mqtt_client_publish(client_ssm, topic, buffer, 0, 2, 1); // QOS 2, retain 1
 		}
 		ESP_LOGI(TAG, "%s sent publish successful, msg_id=%d", SSM_PRODUCT_TYPE_STR(ssm->product_type), msg_id);
-		if (wait_published(msg_id) == 0) {
-			ESP_LOGW(TAG, "topic = %s, product_type = %s, buffer = %s", topic, SSM_PRODUCT_TYPE_STR(ssm->product_type), buffer);
-		} else {
-			ESP_LOGI(TAG, "topic = %s, product_type = %s, buffer = %s", topic, SSM_PRODUCT_TYPE_STR(ssm->product_type), buffer);
-		}
+		//if (wait_published(msg_id) == 0) {
+		//	ESP_LOGW(TAG, "topic = %s, product_type = %s, buffer = %s", topic, SSM_PRODUCT_TYPE_STR(ssm->product_type), buffer);
+		//} else {
+		//	ESP_LOGI(TAG, "topic = %s, product_type = %s, buffer = %s", topic, SSM_PRODUCT_TYPE_STR(ssm->product_type), buffer);
+		//}
 	}
 }
 
@@ -59,7 +59,7 @@ namespace esphome {
 namespace sesame2mqtt {
 
 void Sesame::pass_to_libsesame2mqtt(string mqtt_broker_url, string wifi_ssid, string wifi_password, int number_devices) {
-	real_num_ssms = number_devices;
+	real_num_ssms = (number_devices <= 8) ? number_devices : 8;
 	memset(config_broker_url, 0, sizeof(config_broker_url));
 	sprintf(config_broker_url, "mqtt://%s", mqtt_broker_url.c_str());
 	memset(config_wifi_ssid, 0, sizeof(config_wifi_ssid));
@@ -73,13 +73,19 @@ void Sesame::init(string mqtt_broker_url, string wifi_ssid, string wifi_password
 }
 
 void Sesame::init(string mqtt_broker_url, string wifi_ssid, string wifi_password, int number_devices) {
+	start_timer();
 	ESP_LOGI(TAG, "SesameSDK_ESP32 [11/24][087]");
 	pass_to_libsesame2mqtt(mqtt_broker_url, wifi_ssid, wifi_password, number_devices); // pass component parameters to libsesame2mqtt
 	nvs_flash_init();
 	wifi_init_sta();
 	mqtt_start();
-    ssm_init(ssm_action_handle);
-    esp_ble_init();
+	ssm_init(ssm_action_handle);
+	esp_ble_init();
+}
+
+void Sesame::loop(void) {
+	start_timer();
+	sesame_update();
 	mqtt_discovery();
 	mqtt_subscribe();
 }
