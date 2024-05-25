@@ -2,11 +2,11 @@
 [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) 專案的主要目的，是讓 Home Assistant 的使用者透過 ESP32 開發板便能輕鬆的將 Sesame 設備整合進 Home Assistant 之中。[Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) 的主要特色是它建立在 MQTT discovery 協議上, 能自動掃描、偵測、設定所有設備。因此，對於使用者來說，幾乎不需要做什麼複雜的設定便能完成。 目前支援的設備包括 Sesame 5/ 5 Pro/ Sesame Touch /Touch Pro。 本質上 [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) 是一個以 ESP-IDF 為架構的 ESPHome 外部元件 (External Component), 其主要功能是以 [libsesame2mqtt](https://github.com/js4jiang5/libsesame2mqtt) 函式庫為基礎。此函式庫是 [SesameSDK_ESP32_with_DemoApp](https://github.com/CANDY-HOUSE/SesameSDK_ESP32_with_DemoApp) 的一個分支，但提供了更加完整的控制與監測功能，並且支援 WiFi 與 MQTT 協議。 
 
 ## 版本
-- [0.2.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.2.0) (建議安裝，需使用 [最新版 sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.2.0/sesame2mqtt.yaml)) <br>
+- [[0.2.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.2.0)] (建議安裝，需使用 [最新版 sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.2.0/sesame2mqtt.yaml)) <br>
     - 永不間斷偵測新 Sesame 設備，不需要重新插拔 ESP32 USB
     - 偵測與處理已有設備被人為重置的情況，不需要重新插拔 ESP32 USB
 
-- [0.1.1](https://github.com/js4jiang5/Sesame2MQTT/tree/0.1.1) ([old sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.1.1/sesame2mqtt.yaml))<br>
+- [[0.1.1](https://github.com/js4jiang5/Sesame2MQTT/tree/0.1.1)] ([old sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.1.1/sesame2mqtt.yaml))<br>
     - 初版，一次性偵測所有 Sesame 設備，若有新增設備時必須重新插拔 ESP32 USB
     - 若已有設備被重置，需要重新插拔 ESP32 USB
 
@@ -24,7 +24,7 @@
 
 2. 準備好一個 ESP32-C3-DevKtM-1 開發板。 盡量避免使用其他型號的 ESP32 開發板，除非你想給自己找麻煩。
 
-## Installation
+## 安裝
 安裝非常的簡單
 
 1. 將檔案 [sesame2mqtt.yaml](sesame2mqtt.yaml) 複製到 Home Assistant /config/esphome/ 目錄下。
@@ -78,7 +78,7 @@ Sesame 5 裝置的內容如下。 <br>
     (1) 水平校正: 將 Sesame 5/ 5 Pro 旋鈕轉至水平位置，然後按 "Horizon Calibration" 按鈕，這個位置就是 0°。這個步驟也可以用手機 Sesame APP 來實現。<br>
     <img src="docs/Images/Sesame 5 - Horizon.png" width="300" /> <br><br>
     
-    (2) 輸入上鎖與解鎖角度，設定好後鎖的狀態便會自動更新。如下圖所示我的上鎖是 160° 而解鎖是 20°。能夠直接輸入值來設定上鎖/解鎖角度非常方便，這樣即使你人在門外也能夠設定。或許有一天 Sesame 5 突然出問題而你被反鎖在門外時，這個功能可以救你一命，<br>
+    (2) 輸入上鎖與解鎖角度，設定好後鎖的狀態便會自動更新。如下圖所示我的上鎖是 160° 而解鎖是 20°。能夠直接輸入值來設定上鎖/解鎖角度非常方便，這樣即使你人在門外也能夠設定。或許有一天 Sesame 5 突然出問題而你被反鎖在門外時，這個功能可以救你一命。<br>
     <img src="docs/Images/Sesame 5 - Lock Unlock Position.png" width="300" /> <br>
     <img src="docs/Images/Sesame 5 - Lock 160 Unlock 20.png" width="400" /> <br><br>
 
