@@ -29,7 +29,7 @@ static void ssm_action_handle(sesame * ssm) {
 					cnt += sprintf(buffer + cnt, "\"state\": \"MOVING\", ");
 			}
 
-			cnt += sprintf(buffer + cnt, "\"battery\": %.1f, ", (ssm->mech_status.battery / 30. > 100) ? 100. : ssm->mech_status.battery / 30.);
+			cnt += sprintf(buffer + cnt, "\"battery\": %.1f, ", ssm->battery_percentage);
 			cnt += sprintf(buffer + cnt, "\"position\": %d, ", ssm->mech_status.position);
 			cnt += sprintf(buffer + cnt, "\"lock_position\": %d, ", ssm->mech.lock_unlock.lock);
 			cnt += sprintf(buffer + cnt, "\"unlock_position\": %d }", ssm->mech.lock_unlock.unlock);
@@ -38,7 +38,7 @@ static void ssm_action_handle(sesame * ssm) {
 			msg_id = esp_mqtt_client_publish(client_ssm, topic, buffer, 0, 2, 1); // QOS 2, retain 1
 		} else if (ssm->product_type == SESAME_TOUCH || ssm->product_type == SESAME_TOUCH_PRO) {
 			cnt += sprintf(buffer + cnt, "{ ");
-			cnt += sprintf(buffer + cnt, "\"battery\": %.1f, ", (ssm->mech_status.battery / 30. > 100) ? 100. : ssm->mech_status.battery / 30.);
+			cnt += sprintf(buffer + cnt, "\"battery\": %.1f, ", ssm->battery_percentage);
 			cnt += sprintf(buffer + cnt, "\"add_card\": %d, ", ssm->add_card);
 			cnt += sprintf(buffer + cnt, "\"add_finger\": %d, ", ssm->add_finger);
 			cnt += sprintf(buffer + cnt, "\"connect\": %d }", (ssm->device_status > SSM_CONNECTED));
