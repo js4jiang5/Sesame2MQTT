@@ -2,7 +2,12 @@
 [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) 專案的主要目的，是讓 Home Assistant 的使用者透過 ESP32 開發板便能輕鬆的將 Sesame 設備整合進 Home Assistant 之中。[Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) 的主要特色是它建立在 MQTT discovery 協議上, 能自動掃描、偵測、設定所有設備。因此，對於使用者來說，幾乎不需要做什麼複雜的設定便能完成。 目前支援的設備包括 Sesame 5/ 5 Pro/ Sesame Touch /Touch Pro。 本質上 [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) 是一個以 ESP-IDF 為架構的 ESPHome 外部元件 (External Component), 其主要功能是以 [libsesame2mqtt](https://github.com/js4jiang5/libsesame2mqtt) 函式庫為基礎。此函式庫是 [SesameSDK_ESP32_with_DemoApp](https://github.com/CANDY-HOUSE/SesameSDK_ESP32_with_DemoApp) 的一個分支，但提供了更加完整的控制與監測功能，並且支援 WiFi 與 MQTT 協議。 
 
 ## 版本
-- [[0.2.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.2.0)] (建議安裝，需使用 [最新版 sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.2.0/sesame2mqtt.yaml)) <br>
+- [[0.3.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.3.0)] (建議安裝，需使用 [最新版 sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.3.0/sesame2mqtt.yaml)) <br>
+    - 增加 RSSI 顯示實體
+    - 修改程式架構成純粹事件觸發，不再需要 loop() 即可達成永不間斷偵測新設備
+    - 修正不間斷偵測設備因 Sesame 5 主動離線造成的問題
+
+- [[0.2.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.2.0)] ([0.2.0 sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.2.0/sesame2mqtt.yaml)) <br>
     - 永不間斷偵測新 Sesame 設備，不需要重新插拔 ESP32 USB
     - 偵測與處理已有設備被人為重置的情況，不需要重新插拔 ESP32 USB
 

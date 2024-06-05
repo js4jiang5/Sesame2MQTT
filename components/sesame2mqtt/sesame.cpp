@@ -84,10 +84,6 @@ void Sesame::init(string mqtt_broker_url, string wifi_ssid, string wifi_password
 }
 
 void Sesame::loop(void) {
-	start_timer();
-	sesame_update();
-	mqtt_discovery();
-	mqtt_subscribe();
 }
 
 Sesame::~Sesame() {
