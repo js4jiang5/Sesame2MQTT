@@ -2,12 +2,15 @@
 [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) プロジェクトの主な目的は、Home Assistantのユーザーが ESP32 開発ボードを通じて、Sesame デバイスを Home Assistant に簡単に統合できるようにすることです。 [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) の主な特徴は、MQTT discoveryプロトコルに基づいて構築されており、すべてのデバイスを自動的にスキャン、検出、設定できることです。したがって、ユーザーはほとんど複雑な設定をする必要がありません。現在サポートされているデバイスには、Sesame 5/5 Pro/Sesame Touch/Touch Proが含まれます。本質的に、 [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) はESP-IDFをベースにしたESPHomeの外部コンポーネント（External Component）であり、主な機能は [libsesame2mqtt](https://github.com/js4jiang5/libsesame2mqtt) ライブラリに基づいています。このライブラリは [SesameSDK_ESP32_with_DemoApp](https://github.com/CANDY-HOUSE/SesameSDK_ESP32_with_DemoApp) のフォークですが、より完全な制御と監視機能を提供し、WiFiとMQTTプロトコルをサポートしています。
 
 ## バージョン
-- [[0.3.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.3.0)] ([最新版のsesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.3.0/sesame2mqtt.yaml) を使用することを推奨) <br>
+- [[0.4.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.4.0)] ([最新版のsesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.4.0/sesame2mqtt.yaml) を使用することを推奨) <br>
+    - WiFi再接続失敗後の永続的なMQTTセッションとESP32の再起動により安定性を向上
+
+- [[0.3.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.3.0)] ([0.3.0 sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.3.0/sesame2mqtt.yaml) を使用することを推奨) <br>
     - RSSI を表示するエンティティを追加する
     - イベントトリガーに基づいて無限検出を実現するためにプログラム構造を変更する。loop() 関数はもはや必要ありません
     - Sesame 5 によって開始された切断によって引き起こされる無限検出失敗のバグを修正する
     
-- [[0.2.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.2.0)]  ([最新版のsesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.2.0/sesame2mqtt.yaml)) <br>
+- [[0.2.0](https://github.com/js4jiang5/Sesame2MQTT/tree/0.2.0)]  ([0.2.0 sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.2.0/sesame2mqtt.yaml)) <br>
     - 新しいSesameデバイスを途切れることなく検出し、ESP32 USBを再度挿入する必要はありません既存のデバイスが人為的にリセットされた場合の検出と処理を行い、ESP32 USBを再度挿入する必要はありません
 
 - [[0.1.1](https://github.com/js4jiang5/Sesame2MQTT/tree/0.1.1)]  ([old sesame2mqtt.yaml](https://github.com/js4jiang5/Sesame2MQTT/blob/0.1.1/sesame2mqtt.yaml)) <br>
