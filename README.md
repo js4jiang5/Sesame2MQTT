@@ -36,13 +36,12 @@ The objective of [Sesame2MQTT](https://github.com/js4jiang5/Sesame2MQTT) project
 The installation is super easy.
 
 1. Copy the file [sesame2mqtt.yaml](sesame2mqtt.yaml) into /config/esphome/ directory of your Home Assistant
-2. Edit the file to enter your wifi ssid/password and mosquitto broker URL. Yes, that's all you need to setup. It would help if you also specify real number of devices to let ESP32 know how many devices it would search. Maximum number is 8.
+2. Edit the file to enter your wifi ssid/password and mosquitto broker URL. Yes, that's all you need to setup. Maximum number of Sesame devices is 8.
 ```yaml
 sesame2mqtt:
   wifi_ssid: "wifi_ssid"
   wifi_password: "wifi_password"
   mqtt_broker_url: "username:password@address:1883" # MQTT Broker URL, for example "mqtt_user:mqtt_pass@192.168.1.69:1883"
-  number_devices: 2 # Optional, but it will significantly improve device scan speed if you set it to the real number of your Sesame devices. Maximum is 8
 ```
 
 3. Open ESPHome WEB UI and click the 3 dots of "Sesame2MQTT" project. Sub-menu pop-up. Clich Clean Build Files to make sure old version is cleared. After that, click Install. Then choose Manual download. <br>
