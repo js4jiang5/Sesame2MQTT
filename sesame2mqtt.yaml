@@ -3,7 +3,7 @@ esphome:
   friendly_name: Sesame2MQTT
   name_add_mac_suffix: true
   libraries:
-  - https://github.com/js4jiang5/libsesame2mqtt#0.1.4
+  - https://github.com/js4jiang5/libsesame2mqtt#0.1.5
     
   project: 
     name: esphome.sesame2mqtt
